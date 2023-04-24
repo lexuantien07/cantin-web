@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/style.css">
+    <style>
+    </style>
+    <title>Document</title>
+</head>
+<body>
+    
+  <div class="" style="text-align: center; position: relative;">
+    <h1 class="OurMenu" style="font-size: 60px;">Order successfully</h1>
+    <a href="/client" style="display: block; text-decoration: none; color: #0f5469; font-size: 20px; font-weight: 500;">Back</a>
+    <img src="/img/QR/qr.png" width="300px" style="
+    border: #b2e2f0 10px solid;
+    border-radius: 5px;" >
+    <a href="/download" style="display: block; text-decoration: none; color: #0f5469; font-size: 20px; font-weight: 500;">Download QR</a>
+    <div class=""><%= dataText %></div>
+    <div class="">Please show this QR code when you come to the canteen in order to receive your food.</div>
+    <!-- <table>
+        <tr>
+           <th>Tên món</th><th>Giá</th><th>Số lượng</th>
+        </tr>
+           <td><%= name %></td>
+           <td><%= price %></td>
+           <td><%= count %></td>
+         </tr>    
+     </table> -->
+     <table style="width: 50%; position: absolute; left: 25%">
+        <thead class="thead-light" style="color: white;
+        background: #b2e2f0;
+        height: 40px;">
+          <tr>
+            <th scope="col">Tên món</th>
+            <th scope="col">Giá</th>
+            <th scope="col">Số lượng</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr style="border-bottom: rgb(210, 210, 210) 1px solid; height: 50px">
+            <td scope="row"><%= name %></td>
+            <td><%= price %></td>
+            <td><%= count %></td>
+          </tr>
+        </tbody>
+      </table>
+  </div>
+</body>
+</html>

@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/mdb.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Indie+Flower&family=Inria+Sans:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <style>
+        #btncheckout {
+            background-color: #b2e2f0;
+            border-radius: 5px;
+            border: none;
+            height: 50px;
+            padding: 10px;
+            font-size: 20px;
+            font-weight: 500;
+            color: white;
+        }
+        #form-container {
+            margin: 25px;
+        }
+        .thead-light {
+            color: white;
+            background: #b2e2f0;
+            height: 40px;
+        }
+    </style>
+    <title>Check out</title>
+</head>
+<body>
+    <section class="header" style=>
+        <img class="LogoImg" src="/img/Images/Logo.png">
+    
+        <nav>
+            <div class="links">
+                <ul>
+                    <li><a href="/client">Home</a></li>
+                    <li><a href="/client">Menu</a></li>
+                    <li><a href="/client/clientBook" id="client-book">Order</a></li>
+                    <li><button class="button-74" role="button" id="adbtn"  style="background: none; border: none; text-decoration: none;
+                        font-family: 'Inria Sans', sans-serif;
+                        font-style: normal;
+                        font-weight: 400;
+                        font-size: 28px;
+                        line-height: 34px;
+                        text-align: center;
+                        color: white;
+                        cursor: pointer;">Admin</button></li>
+                    <li>
+                        <div class="cart">
+                            <a href="">
+                                <img src="/img/Images/cart.png" width="40" height="40">
+                            </a>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+        
+
+        
+        <div>
+            <!-- <div class="col1">
+                <img class="Food2" src="/img/Images/bg1.png" style="width: 200px">
+            </div> -->
+            <div class="">
+                <h1 style="
+                font-family: 'Indie Flower', cursive; 
+                font-weight: 400;
+                font-size: 80px;
+                line-height: 100px;
+                text-align: center;
+                color: white;
+                position: absolute;
+                top: 20%;
+                left: 20%">Quote of the Day</h1>
+            </div>
+            <div style="position: absolute; 
+            top: 35%; 
+            left: 20%;
+            font-family: 'Inria Sans', sans-serif;
+            font-style: normal;
+            font-weight: 400;
+            font-size: 40px;
+            line-height: 72px;
+            color: white;">If you cannot do great things<br> do small things in a great way</div>
+            <img class="Food" src="/img/Images/bg1.png" style="width: 350px; left: 65%;">
+        </div>
+        
+        <div class="Back">
+            <a href="/client/clientBook">
+                <img src="/img/Images/back.png">
+            </a>
+        </div>
+    </section>
+    <h1 class="OurMenu">Check out</h1>
+    <!-- <a href="/client/clientBook">Back</a> -->
+    <form action="/addcountbook" method="POST" id="form-container">
+        <table style="width: 100%">
+            <thead class="thead-light" >
+                <tr>
+                  <th scope="col">Image</th>
+                  <th scope="col">Name</th>
+                  <th scope="col">Quantity</th>
+                  <th scope="col">Price</th>
+                </tr>
+            </thead>
+            <% for(let i=0; i < data.name.length; i++) { %>
+                <tr style="border-bottom: rgb(210, 210, 210) 1px solid;">
+                    <th scope="row"><img src="/img/Images/<%= data.name[i] %>.png" width="100px"></th>
+                    <td><%= data.name[i] %></td>
+                    <td><%= data.count[i] %></td>
+                    <td><%= data.price[i] %></td>
+                </tr>
+                <!-- <div class="food-item col"> -->
+                    <!-- <img src="/img/Images/<%= data.name[i] %>.png" width="100px"> -->
+                    <!-- <div class="food-infor"> -->
+                        <!-- <label>Tên món: <%= data.name[i] %></label> -->
+                        <input name="name" value="<%= data.name[i] %>" style="display:none">
+                        <!-- <div class="food-price">Giá: <%= data.price[i] %></div> -->
+                        <input name="price" value="<%= data.price[i] %>" style="display:none">
+                        <!-- <div class="food-count">Số lượng: <%= data.count[i] %></div> -->
+                        <input name="salescount" value="<%= data.count[i] %>" style="display:none">
+                    <!-- </div> -->
+                <!-- </div> -->
+            <% } %>
+            <tr style="border-bottom: rgb(210, 210, 210) 1px solid; height: 50px">
+                <th scope="row">Tổng</th>
+                <td></td>
+                <td></td>
+                <td><%= total %></td>
+            </tr>
+            <tr style="border-bottom: rgb(210, 210, 210) 1px solid; height: 50px">
+                <th scope="row">Phương thức thanh toán</th>
+                <td></td>
+                <td></td>
+                <td><%= data.method %></td>
+            </tr>
+            </table>    
+            <!-- <div class="total">Total: <%= total %></div> -->
+
+            <!-- <div class="pay">Phương thức thanh toán: <%= data.method %></div> -->
+            <div class="" style="text-align: center; 
+            min-height: 600px; ">
+
+                <% if(data.method == 'Momo'){ %>
+                    <h1>Momo</h1>
+                    <div class="" style="font-size: 30px;">0123456789</div>
+                    <div class="">Quét mã QR</div>
+                    <img src="/img/momo.jpg" width="300px"  style="
+                        border: #b2e2f0 10px solid;
+                        border-radius: 5px;">
+                    
+                  <% } else if (data.method == 'Viettel Pay'){ %>  
+                    <h1>Viettel Pay</h1>
+                    <div class="" style="font-size: 30px;">0123456789</div>
+                    <div class="">Quét mã QR</div>
+                    <img src="/img/viettelpay.png" width="300px" style="
+                    border: #b2e2f0 10px solid;
+                    border-radius: 5px;">
+                 <% } else if (data.method == 'Internet Banking'){ %>  
+                    <h1>BIDV Banking</h1>
+                    <div class="" style="font-size: 30px;">0123456789</div>
+                    <div class="">Quét mã QR</div>
+                    <img src="/img/qrcode-default.png" width="300px" style="
+                    border: #b2e2f0 10px solid;
+                    border-radius: 5px;">
+                 <% } else{ %>  
+                    <h1>Vui lòng chọn phương thức thanh toán</h1>
+                 <% } %>
+            <div class="" style="margin: 5px">Hoặc thanh toán qua web</div>
+            <input id="btncheckout" type="submit" value="Xác nhận thanh toán">
+            </div>
+    </form>
+
+
+    
+</body>
+</html>

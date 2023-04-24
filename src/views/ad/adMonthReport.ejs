@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/mdb.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Indie+Flower&family=Inria+Sans:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <style>
+.button-17 {
+    width: 200px;
+  align-items: center;
+  appearance: none;
+  background-color: #b2e2f0;
+  border-radius: 5px;
+  border-style: none;
+  box-shadow: rgba(0, 0, 0, .2) 0 3px 5px -1px,rgba(0, 0, 0, .14) 0 6px 10px 0,rgba(0, 0, 0, .12) 0 1px 18px 0;
+  box-sizing: border-box;
+  color: #ffffff;
+  cursor: pointer;
+  display: inline-flex;
+  fill: currentcolor;
+  font-family: "Google Sans",Roboto,Arial,sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  height: 36px;
+  justify-content: center;
+  letter-spacing: .25px;
+  line-height: normal;
+  /* max-width: 100%; */
+  overflow: visible;
+  padding: 2px 24px;
+  position: relative;
+  text-align: center;
+  text-transform: none;
+  transition: box-shadow 280ms cubic-bezier(.4, 0, .2, 1),opacity 15ms linear 30ms,transform 270ms cubic-bezier(0, 0, .2, 1) 0ms;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  /* width: auto; */
+  will-change: transform,opacity;
+  z-index: 0;
+}
+.button-17:hover {
+  background: #F6F9FE;
+  color: #174ea6;
+}
+.button-17:active {
+  box-shadow: 0 4px 4px 0 rgb(60 64 67 / 30%), 0 8px 12px 6px rgb(60 64 67 / 15%);
+  outline: none;
+}
+.button-17:focus {
+  outline: none;
+  border: 2px solid #4285f4;
+}
+    </style>
+    <title>Báo cáo tháng</title>
+</head>
+<body>
+    <section class="header">
+        <img class="LogoImg" src="/img/Images/Logo.png">
+    
+        <nav>
+            <div class="links">
+                <ul>
+                    <li><a href="/ad/edit">Edit Menuday</a></li>
+                    <li><a href="/ad/stock">Nhập hàng</a></li>
+                    <li><a href="/ad/dayreport">Báo cáo ngày</a></li>
+                    <li><a href="/ad/monthreport">Báo cáo tháng</a></li>
+                    <li><button id="btnscan" style="background: none; border: none; text-decoration: none;
+                        font-family: 'Inria Sans', sans-serif;
+                        font-style: normal;
+                        font-weight: 400;
+                        font-size: 28px;
+                        line-height: 34px;
+                        text-align: center;
+                        color: white;
+                        cursor: pointer;">ScanQR</button></li>
+                    <li>
+                        <div class="cart">
+                            <a href="">
+                                <img src="/img/Images/avtad.png" width="40" height="40">
+                            </a>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    
+        
+        <div>
+        
+          <div class="">
+            <h1 style="
+            font-family: 'Indie Flower', cursive; 
+            font-weight: 400;
+            font-size: 80px;
+            line-height: 200px;
+            text-align: center;
+            color: white;
+                    position: absolute;
+                    top: 20%;
+                    left: 20%">Báo cáo tháng</h1>
+        </div>
+            <img class="Food" src="/img/Images/admin.png" style="width: 250px; left: 65%;">
+        </div>
+        
+        <div class="Back">
+            <a href="/ad">
+                <img src="/img/Images/back.png">
+            </a>
+        </div>
+    </section>
+    <div class="" style="min-height: 500px; margin: auto 20%">
+        <h1 class="OurMenu">Báo cáo</h1>
+        <!-- <form action="/ad/monthreport" method="POST">
+            <label style="border: 1px solid black;" for="inmon">Nhập tháng: 
+            <input name="month" id="inmon">
+            <input type="text" name="month" list="months" autocomplete="off" id="inmon" style="border: none"/>
+            <datalist id="months">
+                <option>1</option>
+                <option>2</option>
+                <option>3</option>
+                <option>4</option>
+                <option>5</option>
+                <option>6</option>
+                <option>7</option>
+                <option>8</option>
+                <option>9</option>
+                <option>10</option>
+                <option>11</option>
+                <option>12</option>
+            </datalist>
+            </label>
+            <input type="submit" value="Send">
+        </form> -->
+        <form action="/ad/monthreport" method="POST">
+            <label for="basic-url">Nhập tháng lập báo cáo</label>
+            <div class="input-group mb-3" style="background: #b2e2f0;">
+                <div class="input-group-prepend">
+                    <span class="input-group-text" id="basic-addon3">Tháng: </span>
+                </div>
+                <input type="text" class="form-control" id="basic-url" aria-describedby="basic-addon3" name="month" list="months" autocomplete="off" id="inmon">
+                <datalist id="months">
+                    <option>1</option>
+                    <option>2</option>
+                    <option>3</option>
+                    <option>4</option>
+                    <option>5</option>
+                    <option>6</option>
+                    <option>7</option>
+                    <option>8</option>
+                    <option>9</option>
+                    <option>10</option>
+                    <option>11</option>
+                    <option>12</option>
+                </datalist>
+                <button class="button-17" role="submit">SEND</button>
+            </div>
+            
+        </form>
+        <div class="" style="border: 2px solid #b2e2f0; padding: 10px;">
+
+            <div class="" ><%= month %></div>
+            <% for(let i=0; i < dataDate.length; i++) { %>
+                <table style="width: 100%;">
+    
+                    <tr style="border-bottom: rgb(210, 210, 210) 1px solid; height: 50px">
+                        <td scope="row"><%= dataDate[i].date %></td>
+                        <td><%= dataTotalDay[i].totalday %> VND</td>
+                    </tr>
+                </table>
+                <!-- <div class=""></div>
+                <div class=""></div> -->
+            <% } %>
+            <div class="" style="margin-top:10px"><%= totalMonth %></div>
+        </div>
+        <form action="/getmonthreport" method="POST">
+            <input name="monthdata" value="<%= monthdata %>" style="display: none">
+            <input name="totaldata" value="<%= totaldata %>" style="display: none">
+            <input type="submit" value="Báo cáo" style="background: #b2e2f0; color: white; height: 40px; width: 100px;
+            border: none; border-radius: 5px; margin-top: 10px;">
+        </form>
+    </div>
+</body>
+</html>

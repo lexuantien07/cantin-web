@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Indie+Flower&family=Inria+Sans:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <title>AD</title>
+    <style>
+                .container {
+            position: relative;
+            /* background-color: #ddd; */
+        }
+        .popup-book{
+            position: absolute;
+            top: 50%;  /* position the top  edge of the element at the middle of the parent */
+            left: 50%; /* position the left edge of the element at the middle of the parent */
+            transform: translate(-50%, -50%);
+            text-align: center;
+            width: 500px;
+            height: 500px;
+            background-color: rgb(255, 255, 255);
+            display: none;
+            border-radius: 5px;
+        }
+        .wrapper {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            display: none;
+        }
+        .wrapper-overlay {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.4);
+            display: none;
+        }
+        .food-infor {
+            text-align: center;
+            font-size: 20px;
+            font-weight: 600;
+            color: #ffffff;
+            background: #ddf2fd;
+            border-bottom-left-radius: 30px;
+            border-bottom-right-radius: 30px;
+            width: 300px;
+        }
+    </style>
+</head>
+<body>
+    <section class="header">
+        <img class="LogoImg" src="/img/Images/Logo.png">
+
+        <nav>
+            <div class="links">
+                <ul>
+                    <li><a href="/ad/edit">Edit Menuday</a></li>
+                    <li><a href="/ad/stock">Nhập hàng</a></li>
+                    <li><a href="/ad/dayreport">Báo cáo ngày</a></li>
+                    <li><a href="/ad/monthreport">Báo cáo tháng</a></li>
+                    <li><button id="btnscan" style="background: none; border: none; text-decoration: none;
+                        font-family: 'Inria Sans', sans-serif;
+                        font-style: normal;
+                        font-weight: 400;
+                        font-size: 28px;
+                        line-height: 34px;
+                        text-align: center;
+                        color: white;
+                        cursor: pointer;">ScanQR</button></li>
+                    <li>
+                        <div class="cart">
+                            <a href="">
+                                <img src="/img/Images/avtad.png" width="40" height="40">
+                            </a>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+        
+        <div class="textBox">
+            <h3  style="
+            font-family: 'Indie Flower', cursive; 
+            font-weight: 400;
+            font-size: 120px;
+            line-height: 100px;
+            text-align: center;
+            color: white;">ADMIN</h3>
+        </div>
+        
+        <div>
+            <div class="col1">
+                <p>WELCOME BACK</p>
+                <img class="Food2" src="/img/Images/admin.png">
+            </div>
+            <img class="Food" src="/img/Images/admin.png" style="left: 50%">
+        </div>
+        
+        <div class="Back">
+            <a href="/">
+                <img src="/img/Images/back.png">
+            </a>
+        </div>
+    </section>
+    <!-- <h1>AD</h1>
+    <a href="/">Back</a>
+    <a href="/ad/edit">Edit</a>
+    <a href="/ad/stock">Nhập hàng</a>
+    <a href="/ad/dayreport">Báo cáo ngày</a>
+    <a href="/ad/monthreport">Báo cáo tháng</a>
+    <button id="btnscan">ScanQR</button>
+    <a href="/ad/droptb">Drop table hoadon</a>
+    <% for(let i=0; i < data.length; i++) { %>
+        <div class="food-item col">
+            <img src="/img/Images/<%= data[i].name %>.png" width="100px">
+            <div class="food-infor">
+                <label><%= data[i].name %></label>
+                <div class="food-price">Giá: <%= data[i].price %></div> -->
+                <!-- <div class="food-instock">Trong kho: <%= data[i].instock %></div> -->
+            <!-- </div>
+        </div> -->
+    <!-- <% } %> -->
+
+    <div class="wrap-qr" style="display: none">
+        <% for(let i=0; i < files.length; i++) { %>
+            <img class="img-scan" src="/img/QR/<%= files[i] %>" width="100px">
+        <% } %>
+    </div>
+
+    <div class="wrapper">
+        <div class="wrapper-overlay"></div>
+        <div class="wrapper-body">
+
+            <div class="popup-book">
+                <% for(let i=0; i < files.length; i++) { %>
+                    <a href="/ad/scan">
+                        <img class="img-scan" src="/img/QR/<%= files[i] %>" width="300px" style="cursor: pointer; border: 5px solid #b2e2f0;
+                        border-radius: 5px; margin-top: 13%;">
+                    </a>
+                    <div class="" style="color: #b2e2f0; font-size: 20px; font-weight: 500;"><%= files[i] %></div>
+                    <div class="">Click để kiểm tra nội dung QR code</div>
+                <% } %>
+            </div>
+
+            
+        </div>
+    </div>
+
+
+    <section class="">
+        <h1 class="OurMenu">Our menu</h1>
+
+        <div id="MenuDisplay">
+            <div id="SpecialMenu">
+                <div class="container">
+                    <h1 style="
+                        font-family: 'Indie Flower', cursive;
+                        font-weight: 400;
+                        font-size: 60px;
+                        line-height: 100px;
+                        text-align: center;
+                        color: #b2e2f0;
+                        ">
+                          Breakfast
+                    </h1>
+                    <div class="row">
+                        <% for(let i=0; i < data.length; i++) { %>
+                            <% if (data[i].category=="Breakfast") {%>
+                                <div class="food-item col">
+                                    <img src="/img/Images/<%= data[i].name %>.png" width="300px">
+                                    <div class="food-infor">
+                                        <label><%= data[i].name %></label>
+                                        <div class="food-price">Giá: <%= data[i].price %></div>
+                                        <!-- <div class="food-instock">Trong kho: <%= data[i].instock %></div> -->
+                                    </div>
+                                </div>
+                            <%} %>
+                        <% } %>
+                    </div>
+
+                    <h1 style="
+                        font-family: 'Indie Flower', cursive;
+                        font-weight: 400;
+                        font-size: 60px;
+                        line-height: 100px;
+                        text-align: center;
+                        color: #b2e2f0;
+                        ">
+                          Lunch
+                    </h1>
+                    <div class="row">
+                        <% for(let i=0; i < data.length; i++) { %>
+                            <% if (data[i].category=="Lunch") {%>
+                                <div class="food-item col">
+                                    <img src="/img/Images/<%= data[i].name %>.png" width="300px">
+                                    <div class="food-infor">
+                                        <label><%= data[i].name %></label>
+                                        <div class="food-price">Giá: <%= data[i].price %></div>
+                                        <!-- <div class="food-instock">Trong kho: <%= data[i].instock %></div> -->
+                                    </div>
+                                </div>
+                            <%} %>
+                        <% } %>
+                    </div>
+                    
+                    <h1 style="
+                        font-family: 'Indie Flower', cursive;
+                        font-weight: 400;
+                        font-size: 60px;
+                        line-height: 100px;
+                        text-align: center;
+                        color: #b2e2f0;
+                        ">
+                          Fast food
+                    </h1>
+                    <div class="row">
+                        <% for(let i=0; i < data.length; i++) { %>
+                            <% if (data[i].category=="Fast food") {%>
+                                <div class="food-item col">
+                                    <img src="/img/Images/<%= data[i].name %>.png" width="300px">
+                                    <div class="food-infor">
+                                        <label><%= data[i].name %></label>
+                                        <div class="food-price">Giá: <%= data[i].price %></div>
+                                        <!-- <div class="food-instock">Trong kho: <%= data[i].instock %></div> -->
+                                    </div>
+                                </div>
+                            <%} %>
+                        <% } %>
+                    </div>
+
+                    <h1 style="
+                        font-family: 'Indie Flower', cursive;
+                        font-weight: 400;
+                        font-size: 60px;
+                        line-height: 100px;
+                        text-align: center;
+                        color: #b2e2f0;
+                        ">
+                          Drink
+                    </h1>
+                    <div class="row">
+                        <% for(let i=0; i < data.length; i++) { %>
+                            <% if (data[i].category=="Drink") {%>
+                                <div class="food-item col">
+                                    <img src="/img/Images/<%= data[i].name %>.png" width="300px">
+                                    <div class="food-infor">
+                                        <label><%= data[i].name %></label>
+                                        <div class="food-price">Giá: <%= data[i].price %></div>
+                                        <!-- <div class="food-instock">Trong kho: <%= data[i].instock %></div> -->
+                                    </div>
+                                </div>
+                            <%} %>
+                        <% } %>
+                    </div>
+
+                    <h1 style="
+                        font-family: 'Indie Flower', cursive;
+                        font-weight: 400;
+                        font-size: 60px;
+                        line-height: 100px;
+                        text-align: center;
+                        color: #b2e2f0;
+                        ">
+                          Dessert
+                    </h1>
+                    <div class="row">
+                        <% for(let i=0; i < data.length; i++) { %>
+                            <% if (data[i].category=="Dessert") {%>
+                                <div class="food-item col">
+                                    <img src="/img/Images/<%= data[i].name %>.png" width="300px">
+                                    <div class="food-infor">
+                                        <label><%= data[i].name %></label>
+                                        <div class="food-price">Giá: <%= data[i].price %></div>
+                                        <!-- <div class="food-instock">Trong kho: <%= data[i].instock %></div> -->
+                                    </div>
+                                </div>
+                            <%} %>
+                        <% } %>
+                    </div>
+                </div>
+
+
+
+            </div>
+        </div>
+    </section>
+
+
+    <script>
+        document.getElementById('btnscan').onclick = () => {
+            document.getElementsByClassName('popup-book')[0].style.display = 'block';
+            document.getElementsByClassName('wrapper-overlay')[0].style.display = 'block';
+            document.getElementsByClassName('wrapper')[0].style.display = 'block';
+        }
+        document.getElementsByClassName('wrapper-overlay')[0].onclick = () => {
+            document.getElementsByClassName('wrapper-overlay')[0].style.display = 'none';
+            document.getElementsByClassName('wrapper')[0].style.display = 'none';
+        }
+        for (let i = 0; i < document.getElementsByClassName('img-scan').length; i++) {
+            document.getElementsByClassName('img-scan')[i].onclick = () => {
+                
+            }
+        }
+    </script>
+</body>
+</html>

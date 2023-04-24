@@ -1,0 +1,434 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+.header{
+    min-height: 40vh;
+    min-width: 700px;
+    background-color: rgba(178, 226, 240, 1);
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 0px 0px 50px 50px;
+    overflow: hidden;
+}
+
+.LogoImg{
+    position: absolute;
+    left: 15%;
+    top: 5%;
+}
+
+nav{
+    display: flex;
+    padding: 2% 6%;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.links{
+    flex: 1;
+    text-align: right;
+}
+
+.links ul li{
+    list-style: none;
+    display: inline-block;
+    padding: 8px 12px;
+}
+
+.links ul li a{
+    text-decoration: none;
+    font-family: 'Inria Sans', sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 28px;
+    line-height: 34px;
+    text-align: center;
+
+    color: white;
+}
+
+.links ul li::after{
+    content: '';
+    width: 0%;
+    height: 2px;
+    background: white;
+    display: block;
+    margin: auto;
+    transition: 0.5s
+}
+
+.links ul li:hover::after{
+    width: 100%;
+}
+
+.textBox{
+    font-family: 'Indie Flower', cursive; 
+    font-weight: 400;
+    font-size: 120px;
+    line-height: 263px;
+    text-align: center;
+    color: white;
+}
+
+.col1{
+    position: absolute;
+    left: 15%;
+    top: 70%;
+    font-family: 'Inria Sans', sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 60px;
+    line-height: 72px;
+    color: white;
+}
+
+.Food{
+    position: relative;
+    left: 45%;
+    filter: drop-shadow(0px 5px 4px rgba(0, 0, 0, 0.25));
+}
+
+.Food2{
+    display: none;
+}
+
+.textBox_2{
+    position: absolute;
+    font-family: 'Inria Sans', sans-serif;
+    font-style: normal;
+    font-weight: 700;
+    margin-top: 5%;
+    
+    line-height: 48px;
+    color: white;
+}
+
+.textBox_2 a{
+    text-decoration: none;
+    font-family: 'Inria Sans', sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 28px;
+    line-height: 34px;
+    text-align: left;
+
+    font-size: 40px;
+    color: #518EAC;
+}
+
+.textBox_2 a ::after{
+    content: '';
+    width: 0%;
+    height: 2px;
+    background: #518EAC;
+    display: block;
+    margin: auto;
+    transition: 0.5s
+}
+
+.textBox_2 :hover::after{
+    width: 100%;
+}
+
+.text_3{
+    position: absolute;
+    font-family: 'Inria Sans', sans-serif;
+    margin-top: 1.5%;
+    left: 24%;
+    font-size: 35px;
+}
+
+.Search{
+    position: absolute;
+    margin-top: 20%;
+    width: 450px;
+    height: 50px;
+    font-size: 30px;
+    font-family: 'Indie Flower', cursive;
+    border-radius: 33px;
+    text-align: center;
+    border: none;
+}
+
+.Back{
+    position: relative;
+    margin-left: 15%;
+}
+
+.Menu{
+    min-height: 150vh;
+    min-width: 700px;
+    background-color: white;
+    /* overflow: hidden; */
+}
+
+.OurMenu{
+    font-family: 'Indie Flower', cursive;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 80px;
+    line-height: 96px;
+
+    margin-top: 3%;
+    text-align: center;
+
+    color: #B2E2F0;
+}
+
+.roww{
+    display: flex;
+    flex-wrap: nowrap;
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 10px;
+    position: absolute;
+    margin-top: 4%;
+    margin-left: 20%;
+
+}
+.roww > div{
+    margin: 10px;
+}
+
+.Breakfast{
+    width: 165px;
+    height: 236px;
+    background: url(/img/Images/breakfast.png);
+    background-size: cover;
+    border: none;
+}
+
+.Lunch{
+    width: 165px;
+    height: 236px;
+    background: url(/img/Images/lunch.png);
+    background-size: cover;
+    border: none;
+}
+
+.FastFood{
+    width: 165px;
+    height: 236px;
+    background: url(/img/Images/fastfood.png);
+    background-size: cover;
+    border: none;
+}
+
+.Drink{
+    width: 165px;
+    height: 236px;
+    background: url(/img/Images/drink.png);
+    background-size: cover;
+    border: none;
+}
+
+.Dessert{
+    width: 165px;
+    height: 236px;
+    background: url(/img/Images/dessert.png);
+    background-size: cover;
+    border: none;
+}
+
+.MenuTitle{
+    font-family: 'Indie Flower', cursive;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 80px;
+    line-height: 96px;
+
+    margin-top: 28%;
+    text-align: center;
+
+    color: #B2E2F0;
+}
+
+.row2{
+    display: flex;
+    flex-wrap: nowrap;
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 10px;
+    position: absolute;
+    margin-left: 27%;
+}
+.row2 > div{
+    margin: 10px;
+}
+
+.BackButton2{
+    width: 157px;
+    height: 44px;
+    margin-top: 35%;
+    margin-left: 45%;
+    background: url(/img/Images/back2.png);
+    background-size: cover;
+    border: none;
+}
+
+@media only screen and (max-width: 700px){
+    .header{
+        min-height: 160vh;
+        min-width: 700px;
+        background-color: rgba(178, 226, 240, 1);
+        box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+        border-radius: 0px 0px 50px 50px;
+        overflow: hidden;
+    }
+
+    .LogoImg{
+        position: absolute;
+        left: 10%;
+        top: 3%;
+    }
+
+    .textBox{
+        font-family: 'Indie Flower', cursive; 
+        font-weight: 400;
+        font-size: 100px;
+        line-height: 263px;
+        text-align: center;
+        color: white;
+    }
+
+    .col1{
+        position: absolute;
+        left: 15%;
+        top: 40%;
+        font-family: 'Inria Sans', sans-serif;
+        font-style: normal;
+        font-weight: 400;
+        font-size: 60px;
+        line-height: 72px;
+        color: white;
+    }
+
+    .textBox_2{
+        position: absolute;
+        font-family: 'Inria Sans', sans-serif;
+        font-style: normal;
+        font-weight: 700;
+        margin-top: 5%;
+        
+        line-height: 48px;
+        color: white;
+    }
+    
+    .textBox_2 a{
+        text-decoration: none;
+        font-family: 'Inria Sans', sans-serif;
+        font-style: normal;
+        font-weight: 400;
+        font-size: 28px;
+        line-height: 34px;
+        text-align: left;
+    
+        font-size: 40px;
+        color: #518EAC;
+    }
+    
+    .textBox_2 a ::after{
+        content: '';
+        width: 0%;
+        height: 2px;
+        background: #518EAC;
+        display: block;
+        margin: auto;
+        transition: 0.5s
+    }
+    
+    .textBox_2 :hover::after{
+        width: 100%;
+    }
+    
+    .text_3{
+        position: absolute;
+        font-family: 'Inria Sans', sans-serif;
+        margin-top: 1.5%;
+        left: 24%;
+        font-size: 35px;
+    }
+    
+    .Search{
+        position: absolute;
+        margin-top: 20%;
+        width: 450px;
+        height: 50px;
+        font-size: 30px;
+        font-family: 'Indie Flower', cursive;
+        border-radius: 33px;
+        text-align: center;
+        border: none;
+    }
+    
+    .Food2{
+        display: block;
+        position: relative;
+        height: 500px;
+        width: 500px;
+        margin-top: 25%;
+        left: 0%;
+        filter: drop-shadow(0px 5px 4px rgba(0, 0, 0, 0.25));
+    }
+    .Food{
+        display: none;
+    }
+
+    .Back{
+        position: relative;
+        margin-left: 10%;
+        margin-top: 100%;
+    }
+
+    .roww{
+        display: flex;
+        flex-wrap: nowrap;
+        overflow-x: scroll;
+        scroll-snap-type: mandatory;
+        max-width: 660px;
+        margin: 0 auto;
+        padding: 10px;
+        position: absolute;
+        margin-top: 4%;
+    }
+    .roww::-webkit-scrollbar{
+        width: 0;
+    }
+    .roww > div{
+        margin: 10px;
+    }
+
+    .MenuTitle{
+        font-family: 'Indie Flower', cursive;
+        font-style: normal;
+        font-weight: 700;
+        font-size: 80px;
+        line-height: 96px;
+    
+        margin-top: 50%;
+        text-align: center;
+    
+        color: #B2E2F0;
+    }
+    
+    .row2{
+        display: flex;
+        flex-wrap: nowrap;
+        max-width: 100px;
+        margin: 0 auto;
+        padding: 10px;
+    }
+
+    .BackButton2{
+        width: 157px;
+        height: 44px;
+        margin-top: 60%;
+        margin-left: 40%;
+        background: url(/img/Images/back2.png);
+        background-size: cover;
+        border: none;
+    }
+    
+}
+

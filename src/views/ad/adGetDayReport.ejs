@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <title>Day Report</title>
+</head>
+<body>
+    <div class="">
+        <form action="/downloadday" method="POST" id="fo">
+            <div class="" style="font-size: 30px; font-weight: 500;">Báo cáo tổng kết ngày: <%= date %></div>
+            <div class="" style="font-size: 20px; font-weight: 500;">Doanh thu</div>
+            <table class="table table-bordered" style="width: 50%">
+                <tr>
+                    <th scope="col">Tên</th>
+                    <th scope="col">Giá</th>
+                    <th scope="col">Số lượng bán</th>
+                    <th scope="col">Thu nhập</th>
+                </tr>
+                <% for(let i=0; i < data.length; i++) { %>
+                    <% if (data[i].salescount != '0') {%>
+                        <tr>
+                            <td scope="row"><%= data[i].name %></td>
+                            <td class="price1"><%= data[i].price %></td>
+                            <td class="count1"><%= data[i].salescount %></td>
+                            <td class="thunhap1"></td>
+                        </tr>
+                    <%} %>
+                <% } %>
+            </table>
+            <div class="" style="margin: 10px">Tổng doanh thu trong ngày: <%= totalDayRevenue %></div>
+
+            <div class="" style="font-size: 20px; font-weight: 500;">Tồn kho</div>
+            <table class="table table-bordered" style="width: 50%">
+                <tr>
+                    <th scope="col">Tên</th>
+                    <th scope="col">Số lượng bán</th>
+                    <th scope="col">Số lượng nhập</th>
+                    <th scope="col">Số lượng còn</th>
+                </tr>
+                <% for(let i=0; i < data.length; i++) { %>
+                    <% if (data[i].category == 'Drink' || data[i].category == 'Dessert') {%>
+                        <tr>
+                            <td scope="row"><%= data[i].name %></td>
+                            <td class="count2"><%= data[i].salescount %></td>
+                            <td class="stock2"><%= data[i].instock %></td>
+                            <td class="remain2"></td>
+                        </tr>
+                    <%} %>
+                <% } %>
+            </table>
+        </form>
+    </div>
+
+    <script>
+        
+        for (let i = 0; i < document.getElementsByClassName('thunhap1').length; i++) {
+            var a1 = parseInt(document.getElementsByClassName('price1')[i].innerHTML);
+            var b1 = parseInt(document.getElementsByClassName('count1')[i].innerHTML);
+            var c1 = a1 * b1;
+            // console.log('check ', a, b, c, d, e);
+            document.getElementsByClassName('thunhap1')[i].innerHTML = c1;
+        }
+
+        for (let i = 0; i < document.getElementsByClassName('count2').length; i++) {
+            var b2 = parseInt(document.getElementsByClassName('count2')[i].innerHTML);
+            var d2 = parseInt(document.getElementsByClassName('stock2')[i].innerHTML);
+            var e2 = d2 - b2;
+            // console.log('check ', a, b, c, d, e);
+            document.getElementsByClassName('remain2')[i].innerHTML = e2;
+        }
+
+
+        
+    </script>
+</body>
+</html>

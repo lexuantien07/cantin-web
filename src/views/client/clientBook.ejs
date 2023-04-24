@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" href="/css/mdb.min.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Indie+Flower&family=Inria+Sans:ital,wght@0,400;0,700;1,400&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      ul {
+        list-style-type: none;
+      }
+
+      li {
+        display: inline-block;
+      }
+
+      input[type="checkbox"][id^="myCheckbox"] {
+        display: none;
+      }
+
+      .labelcheck {
+        border: 1px solid #fff;
+        padding: 10px;
+        display: block;
+        position: relative;
+        margin: 10px;
+        cursor: pointer;
+      }
+
+      label:before {
+        background-color: white;
+        color: white;
+        content: " ";
+        display: block;
+        border-radius: 50%;
+        border: 1px solid grey;
+        position: absolute;
+        top: -5px;
+        left: -5px;
+        width: 25px;
+        height: 25px;
+        text-align: center;
+        line-height: 28px;
+        transition-duration: 0.4s;
+        transform: scale(0);
+      }
+
+      label img {
+        height: 100px;
+        width: 100px;
+        transition-duration: 0.2s;
+        transform-origin: 50% 50%;
+      }
+
+      :checked + label {
+        border-color: #ddd;
+      }
+
+      :checked + label:before {
+        content: "✓";
+        background-color: grey;
+        transform: scale(1);
+      }
+
+      :checked + label img {
+        transform: scale(0.9);
+        /* box-shadow: 0 0 5px #333; */
+        z-index: -1;
+      }
+      input[type="radio"] {
+        visibility: hidden;
+        height: 0;
+        width: 0;
+      }
+      .button-17 {
+        width: 200px;
+        align-items: center;
+        appearance: none;
+        background-color: #b2e2f0;
+        border-radius: 5px;
+        border-style: none;
+        box-shadow: rgba(0, 0, 0, 0.2) 0 3px 5px -1px,
+          rgba(0, 0, 0, 0.14) 0 6px 10px 0, rgba(0, 0, 0, 0.12) 0 1px 18px 0;
+        box-sizing: border-box;
+        color: #f5f5f5;
+        cursor: pointer;
+        display: inline-flex;
+        fill: currentcolor;
+        font-family: "Google Sans", Roboto, Arial, sans-serif;
+        font-size: 14px;
+        font-weight: 600;
+        height: 36px;
+        justify-content: center;
+        letter-spacing: 0.25px;
+        line-height: normal;
+        /* max-width: 100%; */
+        overflow: visible;
+        padding: 2px 24px;
+        position: relative;
+        text-align: center;
+        text-transform: none;
+        transition: box-shadow 280ms cubic-bezier(0.4, 0, 0.2, 1),
+          opacity 15ms linear 30ms,
+          transform 270ms cubic-bezier(0, 0, 0.2, 1) 0ms;
+        user-select: none;
+        -webkit-user-select: none;
+        touch-action: manipulation;
+        /* width: auto; */
+        will-change: transform, opacity;
+        z-index: 0;
+      }
+      .button-17:hover {
+        background: #f6f9fe;
+        color: #174ea6;
+      }
+      .button-17:active {
+        box-shadow: 0 4px 4px 0 rgb(60 64 67 / 30%),
+          0 8px 12px 6px rgb(60 64 67 / 15%);
+        outline: none;
+      }
+      .button-17:focus {
+        outline: none;
+        border: 2px solid #4285f4;
+      }
+      .food-infor {
+        text-align: center;
+        font-size: 20px;
+        font-weight: 600;
+        color: #ffffff;
+        background: #ddf2fd;
+        border-bottom-left-radius: 30px;
+        border-bottom-right-radius: 30px;
+        width: 300px;
+      }
+    </style>
+    <title>Client Book</title>
+  </head>
+  <body>
+    <section class="header">
+      <img class="LogoImg" src="/img/Images/Logo.png" />
+
+      <nav>
+        <div class="links">
+          <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/">Menu</a></li>
+            <li><a href="/client/clientBook" id="client-book">Order</a></li>
+            <li>
+              <button
+                class="button-74"
+                role="button"
+                id="adbtn"
+                style="
+                  background: none;
+                  border: none;
+                  text-decoration: none;
+                  font-family: 'Inria Sans', sans-serif;
+                  font-style: normal;
+                  font-weight: 400;
+                  font-size: 28px;
+                  line-height: 34px;
+                  text-align: center;
+                  color: white;
+                  cursor: pointer;
+                "
+              >
+                Admin
+              </button>
+            </li>
+            <li>
+              <div class="cart">
+                <a href="">
+                  <img src="/img/Images/cart.png" width="40" height="40" />
+                </a>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </nav>
+
+      <div>
+        <div class="">
+          <h1
+            style="
+              font-family: 'Indie Flower', cursive;
+              font-weight: 400;
+              font-size: 80px;
+              line-height: 100px;
+              text-align: center;
+              color: white;
+              position: absolute;
+              top: 15%;
+              left: 20%;
+            "
+          >
+            Choose Your Meal
+          </h1>
+        </div>
+        <div
+          style="
+            position: absolute;
+            top: 35%;
+            left: 20%;
+            font-family: 'Inria Sans', sans-serif;
+            font-style: normal;
+            font-weight: 400;
+            font-size: 40px;
+            line-height: 72px;
+            color: white;
+          "
+        >
+          Did you know that <br />
+          healthy foods can make you happier?
+        </div>
+        <img
+          class="Food"
+          src="/img/Images/bg1.png"
+          style="width: 350px; left: 65%"
+        />
+      </div>
+
+      <div class="Back">
+        <a href="/client">
+          <img src="/img/Images/back.png" />
+        </a>
+      </div>
+    </section>
+    <h1 class="OurMenu">Order</h1>
+    <div class="container" style="min-height: 110vh; text-align: center">
+      <!-- <div class="row">
+        <% for(let i=0; i < data.length; i++) { %>
+        <div class="food-item col" style="text-align: left;">
+          <img src="/img/Images/<%= data[i].name %>.png" width="100%" />
+          <div class="food-infor">
+            <label><%= data[i].name %></label>
+            <input
+              type="checkbox"
+              class="food-check"
+              value="<%= data[i].name %>"
+            />
+            <div class="food-price"><%= data[i].price %></div>
+          </div>
+        </div>
+        <% } %>
+      </div> -->
+
+      <h1 style="
+            font-family: 'Indie Flower', cursive;
+            font-weight: 400;
+            font-size: 60px;
+            line-height: 100px;
+            text-align: center;
+            color: #b2e2f0;
+          ">
+        Breakfast
+      </h1>
+      <div class="row">
+        <% for(let i=0; i < data.length; i++) { %>
+          <% if(data[i].category=="Breakfast" ){ %>
+            <div class="food-item col" style="text-align: left;">
+              <img src="/img/Images/<%= data[i].name %>.png" width="300px" />
+              <div class="food-infor">
+                <label>
+                  <%= data[i].name %>
+                </label>
+                <input type="checkbox" class="food-check" value="<%= data[i].name %>" />
+                <div class="food-price">
+                  <%= data[i].price %>
+                </div>
+              </div>
+            </div>
+            <% } %>
+              <% } %>
+      </div>
+
+      <h1 style="
+              font-family: 'Indie Flower', cursive;
+              font-weight: 400;
+              font-size: 60px;
+              line-height: 100px;
+              text-align: center;
+              color: #b2e2f0;
+            ">
+        Lunch
+      </h1>
+      <div class="row">
+        <% for(let i=0; i < data.length; i++) { %>
+          <% if(data[i].category == "Lunch"){ %>
+            <div class="food-item col" style="text-align: left;">
+              <img src="/img/Images/<%= data[i].name %>.png" width="300px" />
+              <div class="food-infor">
+                <label><%= data[i].name %></label>
+                <input
+                  type="checkbox"
+                  class="food-check"
+                  value="<%= data[i].name %>"
+                />
+                <div class="food-price"><%= data[i].price %></div>
+              </div>
+            </div>
+         <% } %>
+        <% } %>
+      </div>
+
+      <h1 style="
+            font-family: 'Indie Flower', cursive;
+            font-weight: 400;
+            font-size: 60px;
+            line-height: 100px;
+            text-align: center;
+            color: #b2e2f0;
+          ">
+        Fast food
+      </h1>
+      <div class="row">
+        <% for(let i=0; i < data.length; i++) { %>
+          <% if(data[i].category=="Fast food" ){ %>
+            <div class="food-item col" style="text-align: left;">
+              <img src="/img/Images/<%= data[i].name %>.png" width="300px" />
+              <div class="food-infor">
+                <label>
+                  <%= data[i].name %>
+                </label>
+                <input type="checkbox" class="food-check" value="<%= data[i].name %>" />
+                <div class="food-price">
+                  <%= data[i].price %>
+                </div>
+              </div>
+            </div>
+            <% } %>
+              <% } %>
+      </div>
+      
+      <h1 style="
+      font-family: 'Indie Flower', cursive;
+      font-weight: 400;
+      font-size: 60px;
+      line-height: 100px;
+      text-align: center;
+      color: #b2e2f0;
+      ">
+        Drink
+      </h1>
+      <div class="row">
+        <% for(let i=0; i < data.length; i++) { %>
+          <% if(data[i].category=="Drink" ){ %>
+            <div class="food-item col" style="text-align: left;">
+              <img src="/img/Images/<%= data[i].name %>.png" width="300px"/>
+              <div class="food-infor">
+                <label>
+                  <%= data[i].name %>
+                </label>
+                <input type="checkbox" class="food-check" value="<%= data[i].name %>" />
+                <div class="food-price">
+                  <%= data[i].price %>
+                </div>
+              </div>
+            </div>
+            <% } %>
+              <% } %>
+      </div>
+      
+      <h1 style="
+      font-family: 'Indie Flower', cursive;
+      font-weight: 400;
+      font-size: 60px;
+      line-height: 100px;
+      text-align: center;
+      color: #b2e2f0;
+      ">
+        Dessert
+      </h1>
+      <div class="row">
+        <% for(let i=0; i < data.length; i++) { %>
+          <% if(data[i].category=="Dessert" ){ %>
+            <div class="food-item col" style="text-align: left;">
+              <img src="/img/Images/<%= data[i].name %>.png" width="300px" />
+              <div class="food-infor">
+                <label>
+                  <%= data[i].name %>
+                </label>
+                <input type="checkbox" class="food-check" value="<%= data[i].name %>" />
+                <div class="food-price">
+                  <%= data[i].price %>
+                </div>
+              </div>
+            </div>
+            <% } %>
+              <% } %>
+      </div>
+
+
+      <!-- <button class="addbtn">Add</button> -->
+      <div class="" style="text-align: center; margin: 3%">
+        <button class="button-17 addbtn">ADD</button>
+      </div>
+      <form
+        action="/client/clientCheckout"
+        id="myForm"
+        method="POST"
+        style="margin: 10px 20%; border: 2px solid #b2e2f0"
+      >
+        <div class="form-container"></div>
+        <ul id="pay-method" style="display: none">
+          <li>
+            <input type="radio" id="myCheckbox1" name="method" value="Momo" />
+            <label for="myCheckbox1" class="labelcheck"
+              ><img src="/img/momoicon.png"
+            /></label>
+          </li>
+          <li>
+            <input
+              type="radio"
+              id="myCheckbox2"
+              name="method"
+              value="Viettel Pay"
+            />
+            <label for="myCheckbox2" class="labelcheck"
+              ><img src="/img/viettelpayicon.png"
+            /></label>
+          </li>
+          <li>
+            <input
+              type="radio"
+              id="myCheckbox3"
+              name="method"
+              value="Internet Banking"
+            />
+            <label for="myCheckbox3" class="labelcheck"
+              ><img src="/img/bankingicon.png"
+            /></label>
+          </li>
+        </ul>
+      </form>
+    </div>
+
+    <script>
+      console.log(document.getElementsByClassName("food-check").length);
+      var countFood = document.getElementsByClassName("food-check").length;
+      for (let i = 0; i < countFood; i++) {}
+      document.getElementsByClassName("addbtn")[0].onclick = () => {
+        check = false;
+        for (let i = 0; i < countFood; i++) {
+          if (
+            document.getElementsByClassName("food-check")[i].checked == true
+          ) {
+            console.log(document.getElementsByClassName("food-check")[i].value);
+            var a = document.createElement("div");
+            var atext = document.createTextNode(
+              document.getElementsByClassName("food-check")[i].value
+            );
+            a.appendChild(atext);
+            document.getElementsByClassName("form-container")[0].appendChild(a);
+
+            var a = document.createElement("input");
+            // var atext = document.createTextNode(document.getElementsByClassName('food-check')[i].value);
+            // a.appendChild(atext);
+            a.className = "bookCnt";
+            a.name = "count";
+            a.value = 1;
+            document.getElementsByClassName("form-container")[0].appendChild(a);
+
+            var a = document.createElement("input");
+            // var atext = document.createTextNode(document.getElementsByClassName('food-check')[i].value);
+            // a.appendChild(atext);
+            a.name = "price";
+            a.style.display = "none";
+            a.value =
+              document.getElementsByClassName("food-price")[i].innerHTML;
+            document.getElementsByClassName("form-container")[0].appendChild(a);
+
+            var a = document.createElement("input");
+            // var atext = document.createTextNode(document.getElementsByClassName('food-check')[i].value);
+            // a.appendChild(atext);
+            a.name = "name";
+            a.style.display = "none";
+            a.value = document.getElementsByClassName("food-check")[i].value;
+            document.getElementsByClassName("form-container")[0].appendChild(a);
+
+            check = true;
+          }
+        }
+        if (check == true) {
+          if (document.getElementsByClassName("bookBtn")[0]) {
+            return;
+          }
+          var a = document.createElement("input");
+          var atext = document.createTextNode("Thanh toan");
+          a.appendChild(atext);
+          a.className = "bookBtn button-17";
+          a.type = "submit";
+          a.value = "Thanh toán";
+          a.setAttribute("Form", "myForm");
+          document.getElementsByClassName("container")[0].appendChild(a);
+        }
+        document.getElementById("pay-method").style.display = "block";
+      };
+
+      // const radioButtons = document.querySelectorAll('input[name="radio"]');
+      //     let selectedMethod;
+      //         for (const radioButton of radioButtons) {
+      //             if (radioButton.checked) {
+      //                 selectedSize = radioButton.value;
+      //                 console.log(radioButton);
+      //                 var a = document.createElement('input');
+      //             // var atext = document.createTextNode(document.getElementsByClassName('food-check')[i].value);
+      //             // a.appendChild(atext);
+      //             a.name = "method";
+      //             // a.style.display = "none";
+      //             a.value = selectedMethod;
+      //             document.getElementsByClassName('form-container')[0].appendChild(a);
+      //                 break;
+      //             }
+      //         }
+    </script>
+  </body>
+</html>
