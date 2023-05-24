@@ -1,11 +1,17 @@
 import mysql from 'mysql2/promise';
 
 const pool = mysql.createPool({
-    host: 'containers-us-west-27.railway.app',
-    user: 'root',
-    database: 'railway',
-    password: '6zH7IT2CUzxWEkUWAnL0',
-    port: '7203'
+    host: process.env.HOST,
+    user: process.env.USER,
+    database: process.env.DATABASE,
+    password: process.env.PASSWORD,
+    port: process.env.DBPORT
 });
+
+// const pool = mysql.createPool({
+//     host: 'localhost',
+//     user: 'root',
+//     database: 'dataCantin'
+// });
 
 export default pool;

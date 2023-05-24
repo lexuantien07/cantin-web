@@ -74,7 +74,7 @@ let getQRCode = async (req, res) => {
     // await QRCode.toFile('testqr01.png', 'I am Cuamotcanggggg!', function(err) {
     //     if (err) return console.log('error');
     // });
-    var path = 'C:/Users/Admin/Downloads/HK1_3/NMCNPM/Project/src/public/img/QR/qr.png';
+    var path = './src/public/img/QR/qr.png';
     var buffer = fs.readFileSync(path);
     let text = '';
     Jimp.read(buffer, function(err, image) {
@@ -134,7 +134,7 @@ let getQRCode = async (req, res) => {
     // return res.render('qr.ejs');
 };
 let getQRCodeMul = (req, res) => {
-    var path = 'C:/Users/Admin/Downloads/HK1_3/NMCNPM/Project/src/public/img/QR/qr.png';
+    var path = './src/public/img/QR/qr.png';
     var buffer = fs.readFileSync(path);
     let text = '';
     Jimp.read(buffer, function(err, image) {
@@ -251,7 +251,7 @@ let addSalesCount = async (req, res) => {
     const [rowsid, fieldsid] = await pool.execute(`SELECT id FROM hoadon WHERE id = (?)`, [id]);
     console.log('check database id', rowsid[0]);
 
-    QRCode.toFile(`C:/Users/Admin/Downloads/HK1_3/NMCNPM/Project/src/public/img/QR/qr.png`, `ID: ${id} Tên món: ${req.body.name} Giá: ${req.body.price} Số lượng: 1`, function(err) {
+    QRCode.toFile(`./src/public/img/QR/qr.png`, `ID: ${id} Tên món: ${req.body.name} Giá: ${req.body.price} Số lượng: 1`, function(err) {
         if (err) return console.log(err);
     });
     //
@@ -347,7 +347,7 @@ let addSalesCountBook = async (req, res) => {
     const [rowsid, fieldsid] = await pool.execute(`SELECT id FROM hoadon WHERE id = (?)`, [id]);
     console.log('check database id', rowsid[0]);
 
-    QRCode.toFile(`C:/Users/Admin/Downloads/HK1_3/NMCNPM/Project/src/public/img/QR/qr.png`, `ID: ${id} Tên món: ${names} Tổng: ${price}`, function(err) {
+    QRCode.toFile(`/img/QR/qr.png`, `ID: ${id} Tên món: ${names} Tổng: ${price}`, function(err) {
         if (err) return console.log(err);
     });
     const create_payment_json = {
@@ -401,7 +401,7 @@ let getAdHomePage = async (req, res) => {
         const [rows, fields] = await pool.execute('SELECT * FROM menu');
         return res.render('ad/adHome.ejs', {data: rows, files : ''});
     }
-    fs.readdir('C:/Users/Admin/Downloads/HK1_3/NMCNPM/Project/src/public/img/QR', (err, files) => {
+    fs.readdir('./src/public/img/QR', (err, files) => {
         if (err)
             console.log(err);
         else {
@@ -484,7 +484,7 @@ let createData = async (req, res) => {
         await pool.execute(`INSERT INTO menuday (name, price, category, salescount, instock) VALUES (?,?,?,?,?)`, [req.body.name[i], req.body.price[i], req.body.category[i], '0', '0']);
     }
     const [rows, fields] = await pool.execute('SELECT * FROM menuday');
-    fs.readdir('C:/Users/Admin/Downloads/HK1_3/NMCNPM/Project/src/public/img/QR', (err, files) => {
+    fs.readdir('./src/public/img/QR', (err, files) => {
         if (err)
             console.log(err);
         else {
@@ -615,7 +615,7 @@ let sendMonth = async (req, res) => {
     totaldata: totalMonth});
 };
 let getScanQR = (req, res) => {
-    fs.readdir('C:/Users/Admin/Downloads/HK1_3/NMCNPM/Project/src/public/img/QR', (err, files) => {
+    fs.readdir('./src/public/img/QR', (err, files) => {
         if (err)
             console.log(err);
         else {
@@ -634,7 +634,7 @@ let dropTable = async (req, res) => {
     return res.redirect('/ad');
 };
 let adScan = async (req, res) => {
-    var path = 'C:/Users/Admin/Downloads/HK1_3/NMCNPM/Project/src/public/img/QR/qr.png';
+    var path = './src/public/img/QR/qr.png';
     var buffer = fs.readFileSync(path);
     let text = '';
     Jimp.read(buffer, async function(err, image) {
@@ -681,7 +681,7 @@ let adScan = async (req, res) => {
     });
 };
 let downloadQR = (req, res) => {
-    res.download('C:/Users/Admin/Downloads/HK1_3/NMCNPM/Project/src/public/img/QR/qr.png');
+    res.download('./src/public/img/QR/qr.png');
 };
 let downloadDay = async (req, res) => {
     console.log('check post ', req.body.a);

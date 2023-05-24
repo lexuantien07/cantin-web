@@ -3,13 +3,15 @@ import configViewEngine from "./config/viewEngine";
 import initWebRoute from "./route/web";
 import initClientWebRoute from "./route/client";
 import initAdWebRoute from "./route/ad";
+import env from 'dotenv';
+env.config();
 import connection from "./config/connectDB";
 import fs from 'fs';
 import qrreader from 'qrcode-reader';
 import Jimp from 'jimp';
 
 const app = express();
-const port = 8080;
+const port = process.env.PORT || 8081;
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
