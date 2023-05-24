@@ -262,8 +262,8 @@ let addSalesCount = async (req, res) => {
             "payment_method": "paypal"
         },
         "redirect_urls": {
-            "return_url": "http://localhost:8080/qr",
-            "cancel_url": "http://localhost:8080/cancel"
+            "return_url": "https://cantin-nodejs.onrender.com/qr",
+            "cancel_url": "https://cantin-nodejs.onrender.com/cancel"
         },
         "transactions": [{
             "item_list": {
@@ -356,8 +356,8 @@ let addSalesCountBook = async (req, res) => {
             "payment_method": "paypal"
         },
         "redirect_urls": {
-            "return_url": "http://localhost:8080/qrmul",
-            "cancel_url": "http://localhost:8080/cancel"
+            "return_url": "https://cantin-nodejs.onrender.com/qrmul",
+            "cancel_url": "https://cantin-nodejs.onrender.com/cancel"
         },
         "transactions": [{
             "item_list": {
@@ -585,7 +585,7 @@ let sendMonth = async (req, res) => {
             const browser = await puppeteer.launch();
             const page = await browser.newPage();
 
-            await page.goto('http://localhost:8080/', {
+            await page.goto('https://cantin-nodejs.onrender.com/', {
                 waitUntil: 'networkidle0'
             })
         
